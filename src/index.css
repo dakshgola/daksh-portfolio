@@ -1,23 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700;800&display=swap');
+:root {
+  --black: #0C0A0F;
+  --wine-red: #3B0F1C;
+  --accent-red-1: #8B0000;
+  --accent-red-2: #E10600;
+  --off-white: #F3F3F3;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html, body {
-  background: #0C0A0F;
-  color: #F5F5F5;
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--off-white);
+  background-color: var(--black);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Film Grain Overlay */
-body::after {
-  content: "";
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--black);
+  color: var(--off-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+.grain-overlay {
   position: fixed;
-  inset: 0;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.05;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   pointer-events: none;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vz8/vz8/vz8/vz8/vyQ2IfvAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABZJREFUOI1jYGBgEHYGwgAhgADCAMYFAQB+3g/3y1AXKQAAAABJRU5ErkJggg==');
+  opacity: 0.05;
   z-index: 9999;
+}
+
+.smooth-scroll-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll-content {
+  will-change: transform;
 }

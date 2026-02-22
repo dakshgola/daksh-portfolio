@@ -1,73 +1,74 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-export default function Hero() {
+const Hero = () => {
   return (
-    <section className="relative min-h-screen px-10 pt-32 overflow-hidden">
-
-      <div className="absolute inset-0 bg-gradient-to-br from-wine via-dark to-black opacity-80"></div>
-
-      <h1 className="absolute top-20 left-10 text-[140px] md:text-[220px] font-display font-extrabold text-white/5 select-none">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.05 }}
+        transition={{ duration: 1.5, delay: 1 }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-bold text-white/10 select-none pointer-events-none"
+      >
         PORTFOLIO
-      </h1>
+      </motion.div>
 
-      <div className="relative z-10 grid md:grid-cols-2 items-center gap-10">
-
-        <div>
+      <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5, staggerChildren: 0.2 }}
+          className="text-left"
+        >
           <motion.p
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="uppercase tracking-[0.4em] text-gray-400 mb-6"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-sm uppercase tracking-widest text-accent-red-1 mb-4"
           >
-            Film • Edit • Direct
+            FILM • EDIT • DIRECT
           </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-5xl md:text-7xl font-display font-bold leading-tight"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-6xl md:text-8xl font-bold font-serif leading-tight mb-6"
           >
-            Video Editor
-            <br />
-            & Filmmaker
-          </motion.h2>
-
+            Video Editor & Filmmaker
+          </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
-            className="mt-6 text-gray-400 max-w-lg"
+            transition={{ duration: 0.8, delay: 1 }}
+            className="text-lg text-white/70 max-w-lg mb-8"
           >
-            Crafting cinematic experiences that transform stories into
-            emotionally powerful visual journeys.
+            Crafting cinematic narratives with bold visuals and emotive storytelling. Specializing in high-end commercial, music video, and narrative film production.
           </motion.p>
-
-          <motion.a
-            initial={{ opacity: 0, y: 40 }}
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4 }}
-            href="#work"
-            className="inline-block mt-10 px-10 py-4 bg-accent hover:bg-highlight transition rounded-full text-white font-semibold"
+            transition={{ duration: 0.8, delay: 1.2 }}
+            whileHover={{ scale: 1.05, backgroundColor: '#8B0000' }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-4 bg-accent-red-2 text-white font-bold rounded-full text-lg"
           >
             View Films
-          </motion.a>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          className="flex justify-center"
-        >
-          <img
-            src="/your-image.png"
-            alt="Daksh"
-            className="max-h-[600px] object-cover rounded-xl shadow-2xl"
-          />
+          </motion.button>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, x: 50 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.7, ease: 'easeOut' }}
+          className="hidden md:block relative"
+        >
+          <div className="aspect-[3/4] bg-wine-red rounded-lg overflow-hidden shadow-2xl">
+            {/* Placeholder for portrait image */}
+            <img src="https://via.placeholder.com/600x800" alt="Daksh Portrait" className="w-full h-full object-cover"/>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
